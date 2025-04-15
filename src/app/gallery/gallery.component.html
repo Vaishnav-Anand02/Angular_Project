@@ -1,0 +1,24 @@
+<div class="gallery-container">
+    <aside class="sidebar">
+      <h3>Filter by Category</h3>
+      <ul>
+        <li *ngFor="let category of categories"
+            (click)="selectedCategory = category; filterImages()" 
+            [class.active]="selectedCategory === category">
+          {{ category }}
+        </li>
+      </ul>
+    </aside>
+  
+    <section class="image-grid">
+      <app-image-card *ngFor="let image of filteredImages" 
+                      [image]="image" 
+                      (imageClick)="onImageClick($event)">
+      </app-image-card>
+    </section>
+  
+    <app-image-modal *ngIf="selectedImageUrl" 
+                     [imageUrl]="selectedImageUrl" 
+                     (close)="closeModal()">
+    </app-image-modal>
+  </div>

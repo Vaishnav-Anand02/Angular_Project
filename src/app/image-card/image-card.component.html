@@ -1,0 +1,7 @@
+<div class="card" (click)="onImageClick()">
+    <img [src]="image.url" [alt]="image.title" />
+    <div class="caption">
+      <h4>{{ image.title }}</h4>
+      <p>{{ image.category }}</p>
+    </div>
+  </div>
